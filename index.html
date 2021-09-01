@@ -13,46 +13,47 @@
 </head>
 
 
-<body>
-    <h2 class="text-center my-3">Book Archive</h2>
+<body style="background: url('images/bg.jpg'); background-size: cover;">
+    <h2 class="text-center my-3 text-white">Search Your Favorite Books</h2>
 
     <!-- Search bar -->
     <div class="input-group mb-3 w-50 mx-auto">
         <input id="search-input" type="text" class="form-control" placeholder="Enter your book name"
             aria-label="Recipient's username" aria-describedby="button-addon2">
-        <button onclick="dataLoad()" id="search-button" class="btn btn-outline-secondary" type="button"
+        <button onclick="dataLoad()" id="search-button" class="btn btn-secondary" type="button"
             id="button-addon2">Search</button>
     </div>
- 
-     <!-- spinner -->
-     <section id="spinner"  style="display: none;" class="contaner text-center">
-        <div  class="spinner-border text-center" role="status">
+
+    <!-- spinner -->
+    <section id="spinner" style="display: none;" class="contaner text-center">
+        <div class="spinner-border text-center" role="status">
             <span class="visually-hidden">Loading...</span>
         </div>
     </section>
 
     <!-- Error message -->
-   <section class="container">
-    <div id="error" style="display: none;" class="bg-dark">
-        <p class="text-danger text-center">Please enter a valid name</p>
-    </div>
-   </section>
+    <section class="container">
+        <div id="error" style="display: none;" class="bg-dark">
+            <p class="text-danger text-center">Please enter a valid name</p>
+        </div>
+    </section>
 
 
     <!-- Search result -->
+  
     <section class="container">
-        <div id="search-founded" style="display:none;" class="bg-dark">
-            <p id="result-count" class="text-center text-white">Result Not Found</p>
-        </div>
-       </section>
-    <section class="container">
-        <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4">
+        <div id="search-result" class="row row-cols-1 row-cols-md-3 g-4 text-center">
 
 
         </div>
     </section>
+    <section class="container my-4">
+        <div id="search-founded" style="display:none;" class="bg-dark">
+            <p id="result-count" class="text-center text-white">Result Not Found</p>
+        </div>
+    </section>
 
-   
+
 
 
     <!-- =====================Bootstrap script ========================== -->
