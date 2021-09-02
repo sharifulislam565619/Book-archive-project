@@ -5,6 +5,7 @@ const dataLoad = async () => {
     searchInput.value = '';
     toggleSpinner("block")
     if (searchText === "") {
+        searchNotFount("none")
         document.getElementById("error").style.display = "block"
         toggleSpinner("none")
 
@@ -25,16 +26,24 @@ const toggleSpinner = (spinning) => {
     document.getElementById("spinner").style.display = `${spinning}`
 }
 
+// not found
+const searchNotFount = (display) => {
+    document.getElementById("search-founded").style.display = `${display}`
+
+}
+
 // display result
 const displayResult = (books) => {
+    const searchResult = document.getElementById("search-result");
+    searchResult.textContent = '';
+    searchNotFount("none")
 
-    if (books.length < 1) {
-        document.getElementById("search-founded").style.display = "block"
+
+    if (books.length === 0) {
+        searchNotFount("block")
     } else {
 
-        const searchResult = document.getElementById("search-result");
-        searchResult.textContent = '';
-        document.getElementById("search-founded").style.display = "block"
+        searchNotFount("block")
         document.getElementById("result-count").innerText = `Your search result is: ${books.length}`
         books.forEach(book => {
 
@@ -46,14 +55,15 @@ const displayResult = (books) => {
                 <h6 class="card-title text-bold"><strong>Book Name:</strong> ${book.title ? book.title : ''}</h6>
                 <p class="mb-0"><strong>Author Name:</strong> ${book.author_name ? book.author_name :''}</p>
                 <small>First publish: ${book.first_publish_year ? book.first_publish_year :'' } </small>
+                <small>Publisher: ${book.publisher ? book.publisher :'' }</small>
              </div>
              `
             searchResult.appendChild(div)
 
-
-            console.log(book)
         })
     }
 
     toggleSpinner("none")
+
+
 }
